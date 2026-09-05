@@ -384,35 +384,6 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       z-index: 2;
     }
-
-    /* SCROLL DOWN INDICATOR */
-    .hero-scroll {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-    .scroll-line {
-      width: 1px;
-      height: 36px;
-      background: var(--text-dim);
-      animation: scrollPulse 2s ease-in-out infinite;
-      transform-origin: top;
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(0.4); background: var(--accent-primary); }
-    }
-
     /* COMMON SECTION STYLES */
     section {
       padding: 90px 0;
