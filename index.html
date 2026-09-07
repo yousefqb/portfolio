@@ -514,6 +514,7 @@
       grid-template-columns: 1.2fr 0.8fr;
       gap: 36px;
       align-items: center;
+      min-width: 0;
     }
     .project-grid.reverse {
       grid-template-columns: 0.8fr 1.2fr;
@@ -523,6 +524,14 @@
     }
     .project-grid.reverse .project-preview-wrap {
       order: 1;
+    }
+    .project-info {
+      min-width: 0;
+    }
+    .project-preview-wrap {
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
     }
     .project-badge {
       font-family: var(--font-mono);
@@ -559,6 +568,9 @@
       align-items: flex-start;
       gap: 8px;
       line-height: 1.5;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      min-width: 0;
     }
     .project-features li::before {
       content: '▹';
@@ -646,6 +658,9 @@
     /* ARTICLE VISUALS */
     .article-img-link {
       display: block;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -659,6 +674,7 @@
     }
     .article-preview-img {
       width: 100%;
+      max-width: 100%;
       height: auto;
       display: block;
       transition: transform 0.3s ease;
@@ -1023,12 +1039,19 @@
         justify-content: center;
       }
       .project-grid, .project-grid.reverse {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 24px;
+        min-width: 0;
       }
       .project-grid.reverse .project-info,
       .project-grid.reverse .project-preview-wrap {
-        order: unset;
+        order: 0;
+      }
+      .project-info,
+      .project-preview-wrap {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
       }
     }
 
@@ -1509,7 +1532,7 @@
               <ul class="project-features">
                 <li>Explains why value types don't always live on the Stack (e.g., fields inside class instances on Heap).</li>
                 <li>Impact of Boxing &amp; Unboxing on GC pressure and application latency.</li>
-                <li>Modern low-allocation .NET techniques using <code>Span&lt;T&gt;</code>,<code>Memory&lt;T&gt;</code>,<code>Ref struct</code></li>
+              
               </ul>
 
               <div class="project-tags">
@@ -1530,7 +1553,7 @@
 
             <div class="project-preview-wrap">
               <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_csharp-dotnet-fullstackdeveloper-activity-7501491946159259648-mTeQ" target="_blank" class="article-img-link" title="Read on LinkedIn">
-                <img src="img/value-types-stack-heap.png" alt="Stop Saying Value Types = Stack, Reference Types = Heap" class="article-preview-img" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;" />
+                <img src="img/value-types-stack-heap.png" alt="Stop Saying Value Types = Stack, Reference Types = Heap" class="article-preview-img" />
               </a>
             </div>
           </div>
@@ -1547,7 +1570,10 @@
               </p>
               
               <ul class="project-features">
-                <li>Step-by-step pipeline: C# Source &rarr; <code>csc.exe</code> Compiler &rarr; CIL &rarr; CLR &rarr; JIT Compiler &rarr; Native Code.</li>
+            <li>
+                 <b>Step-by-step :</b>
+                C# Source &rarr; csc.exe &rarr; Compiler &rarr; CIL &rarr; CLR &rarr; JIT Compiler &rarr; Native Code
+          </li>
                 <li>Role of CLR: Security verification, Type Safety, Memory Management, and Garbage Collection.</li>
                 <li>Why understanding JIT compilation helps debug complex runtime issues and optimize performance.</li>
               </ul>
@@ -1570,7 +1596,7 @@
 
             <div class="project-preview-wrap">
               <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_csharp-dotnet-dotnetdeveloper-activity-7494740471337009152-qIKt" target="_blank" class="article-img-link" title="Read on LinkedIn">
-                <img src="img/csharp-compilation-pipeline.png" alt="Your C# Code Doesn't Run Directly on the CPU" class="article-preview-img" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;" />
+                <img src="img/csharp-compilation-pipeline.png" alt="Your C# Code Doesn't Run Directly on the CPU" class="article-preview-img" />
               </a>
             </div>
           </div>
@@ -1610,7 +1636,7 @@
 
             <div class="project-preview-wrap">
               <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_dotnet-csharp-aspnetcore-activity-7492702663499812864-dKXl" target="_blank" class="article-img-link" title="Read on LinkedIn">
-                <img src="img/constructors-in-csharp.png" alt="Constructors in C# — More Than Just a Method" class="article-preview-img" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;" />
+                <img src="img/constructors-in-csharp.png" alt="Constructors in C# — More Than Just a Method" class="article-preview-img" />
               </a>
             </div>
           </div>
