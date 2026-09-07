@@ -52,6 +52,16 @@
       overflow-wrap: break-word;
     }
 
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.88em;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--accent-primary);
+    }
+
     /* TOP SCROLL PROGRESS */
     .nav-progress {
       position: fixed;
@@ -633,6 +643,30 @@
       transform: scale(1.02);
     }
 
+    /* ARTICLE VISUALS */
+    .article-img-link {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      background: #000;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .article-img-link:hover {
+      border-color: var(--accent-primary);
+      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+    }
+    .article-preview-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .article-img-link:hover .article-preview-img {
+      transform: scale(1.02);
+    }
+
     /* DB Project Graphic Card */
     .db-card-preview {
       background: var(--bg-card);
@@ -1071,6 +1105,7 @@
         <li><a href="#what-i-do" class="nav-link">What I Do</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#articles" class="nav-link">Articles</a></li>
         <li><a href="#process" class="nav-link">Process</a></li>
         <li><a href="#certificates" class="nav-link">Certificates</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -1445,6 +1480,141 @@
                   <img src="img/Screenshot 2026-09-05 212625.png" onerror="this.onerror=null; this.src='img/project-preview.png';" alt="DevPalette Preview" class="mockup-img" />
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LINKEDIN ARTICLES & TECHNICAL WRITING -->
+  <section id="articles">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Technical Writing</span>
+        <h2 class="section-title">LinkedIn Articles &amp; Deep Dives</h2>
+        <p class="section-subtitle">Practical architectural deep dives on .NET internals, CLR memory dynamics, and C# design patterns.</p>
+      </div>
+
+      <div class="projects-list">
+
+        <!-- ARTICLE 1: MEMORY MANAGEMENT -->
+        <div class="project-card reveal">
+          <div class="project-grid">
+            <div class="project-info">
+              <span class="project-badge">.NET Memory Management</span>
+              <h3 class="project-title">Stop Saying "Value Types = Stack, Reference Types = Heap"</h3>
+              <p class="project-desc">
+                A comprehensive breakdown debunking one of the most common .NET memory myths, explaining how the CLR actually allocates memory and manages stack vs. heap dynamics.
+              </p>
+              
+              <ul class="project-features">
+                <li>Explains why value types don't always live on the Stack (e.g., fields inside class instances on Heap).</li>
+                <li>Impact of Boxing &amp; Unboxing on GC pressure and application latency.</li>
+                <li>Modern low-allocation .NET techniques using <code>Span&lt;T&gt;</code>, <code>Memory&lt;T&gt;</code>, and <code>ref struct</code>.</li>
+              </ul>
+
+              <div class="project-tags">
+                <span class="project-tag">C#</span>
+                <span class="project-tag">.NET</span>
+                <span class="project-tag">CLR</span>
+                <span class="project-tag">Memory Management</span>
+                <span class="project-tag">Stack &amp; Heap</span>
+                <span class="project-tag">Performance</span>
+              </div>
+
+              <div class="project-buttons">
+                <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_csharp-dotnet-fullstackdeveloper-activity-7501491946159259648-mTeQ" target="_blank" class="btn-action">
+                  Read Post on LinkedIn ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="project-preview-wrap">
+              <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_csharp-dotnet-fullstackdeveloper-activity-7501491946159259648-mTeQ" target="_blank" class="article-img-link" title="Read on LinkedIn">
+                <img src="img/value-types-stack-heap.png" alt="Stop Saying Value Types = Stack, Reference Types = Heap" class="article-preview-img" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: COMPILATION PIPELINE (REVERSE LAYOUT) -->
+        <div class="project-card reveal">
+          <div class="project-grid reverse">
+            <div class="project-info">
+              <span class="project-badge">.NET Runtime &amp; CLR</span>
+              <h3 class="project-title">Your C# Code Doesn't Run Directly on the CPU</h3>
+              <p class="project-desc">
+                A visual architectural guide demonstrating the lifecycle of C# execution from high-level code down to native machine instructions via CIL and JIT compilation.
+              </p>
+              
+              <ul class="project-features">
+                <li>Step-by-step pipeline: C# Source &rarr; <code>csc.exe</code> Compiler &rarr; CIL &rarr; CLR &rarr; JIT Compiler &rarr; Native Code.</li>
+                <li>Role of CLR: Security verification, Type Safety, Memory Management, and Garbage Collection.</li>
+                <li>Why understanding JIT compilation helps debug complex runtime issues and optimize performance.</li>
+              </ul>
+
+              <div class="project-tags">
+                <span class="project-tag">C#</span>
+                <span class="project-tag">.NET</span>
+                <span class="project-tag">CLR</span>
+                <span class="project-tag">JIT Compiler</span>
+                <span class="project-tag">Compilation</span>
+                <span class="project-tag">Architecture</span>
+              </div>
+
+              <div class="project-buttons">
+                <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_csharp-dotnet-dotnetdeveloper-activity-7494740471337009152-qIKt" target="_blank" class="btn-action">
+                  Read Post on LinkedIn ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="project-preview-wrap">
+              <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_csharp-dotnet-dotnetdeveloper-activity-7494740471337009152-qIKt" target="_blank" class="article-img-link" title="Read on LinkedIn">
+                <img src="img/csharp-compilation-pipeline.png" alt="Your C# Code Doesn't Run Directly on the CPU" class="article-preview-img" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: C# CONSTRUCTORS -->
+        <div class="project-card reveal">
+          <div class="project-grid">
+            <div class="project-info">
+              <span class="project-badge">C# Core &amp; OOP</span>
+              <h3 class="project-title">Constructors in C# — More Than Just a Method</h3>
+              <p class="project-desc">
+                An in-depth guide covering constructor patterns in C# and how object initialization powers modern ASP.NET Core applications and enterprise architectures.
+              </p>
+              
+              <ul class="project-features">
+                <li>Complete walkthrough of Constructor types: Default, Parameterized, Copy, Static, and Private.</li>
+                <li>Essential role in Object-Oriented Design, Dependency Injection (DI) in ASP.NET Core, and EF Core mapping.</li>
+                <li>Understanding runtime initialization behavior inside the .NET CLR.</li>
+              </ul>
+
+              <div class="project-tags">
+                <span class="project-tag">C#</span>
+                <span class="project-tag">.NET</span>
+                <span class="project-tag">OOP</span>
+                <span class="project-tag">Dependency Injection</span>
+                <span class="project-tag">ASP.NET Core</span>
+                <span class="project-tag">Clean Architecture</span>
+              </div>
+
+              <div class="project-buttons">
+                <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_dotnet-csharp-aspnetcore-activity-7492702663499812864-dKXl" target="_blank" class="btn-action">
+                  Read Post on LinkedIn ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="project-preview-wrap">
+              <a href="https://www.linkedin.com/posts/yousef-mohamed-dev_dotnet-csharp-aspnetcore-activity-7492702663499812864-dKXl" target="_blank" class="article-img-link" title="Read on LinkedIn">
+                <img src="img/constructors-in-csharp.png" alt="Constructors in C# — More Than Just a Method" class="article-preview-img" style="width: 100%; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;" />
+              </a>
             </div>
           </div>
         </div>
